@@ -1,0 +1,40 @@
+[build]
+  command = "cd client && npm install && npm run build"
+  publish = "client/build"
+  functions = "server/functions"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  command = "npm run dev"
+  targetPort = 3000
+  publish = "client/build"
+
+[dev.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+  REACT_APP_API_URL = "/api"
+
+[context.production.environment]
+  NODE_ENV = "production"
+  REACT_APP_API_URL = "https://your-api-url.herokuapp.com/api"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
+  REACT_APP_API_URL = "https://staging-api-url.herokuapp.com/api"
+
+[context.branch-deploy.environment]
+  NODE_ENV = "development"
+  REACT_APP_API_URL = "http://localhost:5000/api"
