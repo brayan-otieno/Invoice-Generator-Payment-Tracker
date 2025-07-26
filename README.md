@@ -412,8 +412,6 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ## 📬 Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_twitter) - your.email@example.com
-
 Project Link: [https://github.com/your-username/invoice-generator-payment-tracker](https://github.com/your-username/invoice-generator-payment-tracker)
 
 ## ⭐ Show Your Support
